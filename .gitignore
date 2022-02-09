@@ -24,6 +24,3 @@ burrito_cli_example-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
-
-# Ignore borritto builds
-/burrito_out/

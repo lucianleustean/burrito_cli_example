@@ -35,12 +35,23 @@ requires `sudo` to build and run
 BURRITO_TARGET=linux MIX_ENV=prod mix release
 ```
 
-### Build docker image
+### Build docker image for build
 ```
-docker build -t "borrito_cli_example"  --no-cache .
+docker build --target builder -t "burrito_cli_example_build" --no-cache .
+```
+
+### Run image and make builds
+
+```
+docker run -v $(pwd):/app burrito_cli_example_build
+```
+
+### Build docker image for linux
+```
+docker build --target linux_runner -t "borrito_cli_example_linux" .
 ```
 
 ### Run docker image
 ```
-docker run borrito_cli_example
+docker run -v $(pwd)/burrito_out:/usr/src/app borrito_cli_example_linux
 ```
